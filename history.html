@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西城四合 - 历史沿革</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">西城四合</a>
+            <ul class="nav-links">
+                <li><a href="index.html">基本概况</a></li>
+                <li><a href="history.html" class="active">历史沿革</a></li>
+                <li><a href="routes.html">路线导览</a></li>
+                <li><a href="sounds.html">院落留声</a></li>
+                <li><a href="creation.html">古巷雅创</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-slider">
+        <div class="slide active"><img src="images/1.jpg" alt="1"></div>
+        <div class="slide"><img src="images/2.jpg" alt="2"></div>
+        <div class="slide"><img src="images/3.jpg" alt="3"></div>
+        
+        <div class="banner-text">
+            <h1>历史沿革</h1>
+            <p>追溯西四北三条的历史脉络与人文故事</p>
+        </div>
+
+        <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </header>
+
+    <section class="history-section">
+        <div class="content-container">
+            <h2 class="section-title">胡同史话</h2>
+            <div class="divider"></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">三条胡同</div>
+                    <div class="timeline-content">
+                        <h3>历史变迁</h3>
+                        <p>西四北三条胡同历史悠久，元、明属鸣玉坊，清属正红旗。明代时称为“箔子胡同”，清代是根据谐音称为“报子胡同”和“雹子胡同”。到1911年建立中华民国时称为“报子胡同”，直至1965年北京市整理地名时更改为西四北三条至今，现属西四北头条至八条四合院平房保护区。胡同全长516.98米，呈东西走向。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">四条胡同</div>
+                    <div class="timeline-content">
+                        <h3>历史变迁</h3>
+                        <p>西四北四条胡同，元、明属鸣玉坊，清属正红旗。在明代由于紧靠驴肉胡同，所以成为加工兽皮的作坊聚集地，故称“熟皮”胡同。因熟制皮料臭气四溢，后又称臭皮胡同。1911年后以谐音改称受壁胡同。在1965年整顿地名时，改名为西四北四条，现属西四北头条至八条四合院平房保护区。胡同全长491.03米，呈东西走向。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">五条胡同</div>
+                    <div class="timeline-content">
+                        <h3>历史变迁</h3>
+                        <p>西四北五条胡同，元、明属鸣玉坊，清属正红旗。明代称石老娘胡同，产婆旧称老娘，当时有石姓产婆居此而得名。在1965年整顿地名时，改名为西四北五条，现属西四北头条至八条四合院平房保护区。胡同全长466.61米，呈东西走向。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-display-section" style="background-color: #f5f2ef; padding-bottom: 100px;">
+        <div class="content-container">
+            <h2 class="section-title">影像纪录</h2>
+            <div class="divider"></div>
+            <div class="video-container">
+                <video controls poster="images/history-poster.jpg">
+                    <source src="video/history-video.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 西城四合项目组 - 大学生创新创业训练计划</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

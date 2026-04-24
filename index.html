@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西城四合 - 首页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">西城四合</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">基本概况</a></li>
+                <li><a href="history.html">历史沿革</a></li>
+                <li><a href="routes.html">路线导览</a></li>
+                <li><a href="sounds.html">院落留声</a></li>
+                <li><a href="creation.html">古巷雅创</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-slider">
+        <div class="slide active"><img src="images/1.jpg" alt="1"></div>
+        <div class="slide"><img src="images/2.jpg" alt="2"></div>
+        <div class="slide"><img src="images/3.jpg" alt="3"></div>
+        
+        <div class="banner-text"><h1></h1><p></p></div>
+
+        <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </header>
+
+    <section class="video-display-section">
+        <div class="content-container">
+            <h2 class="section-title">古巷掠影</h2>
+            <div class="divider"></div>
+            <div class="video-container">
+                <video controls poster="images/home-poster.jpg">
+                    <source src="video/home-video.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 西城四合项目组 - 大学生创新创业训练计划</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

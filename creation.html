@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西城四合 - 古巷雅创</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* 文创产品强制设为2x2完美对称网格排版 */
+        @media screen and (min-width: 769px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 40px !important; }
+            .product-img { height: 300px !important; }
+        }
+        #modalDesc { white-space: pre-wrap; text-align: left !important; }
+        .product-img img { object-fit: contain !important; padding: 15px; background: #fff; }
+
+        /* 纯文字版名巷链接卡片样式 (无图片) */
+        .hutong-link-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 35px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border-left: 4px solid #c9372c; /* 左侧红色点缀 */
+        }
+        .hutong-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            background-color: #fff9f8;
+        }
+        .hutong-link-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #222;
+            letter-spacing: 2px;
+        }
+        .hutong-link-card p {
+            font-size: 14px;
+            color: #c9372c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="creation-page">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">西城四合</a>
+            <ul class="nav-links">
+                <li><a href="index.html">基本概况</a></li>
+                <li><a href="history.html">历史沿革</a></li>
+                <li><a href="routes.html">路线导览</a></li>
+                <li><a href="sounds.html">院落留声</a></li>
+                <li><a href="creation.html" class="active">古巷雅创</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-slider">
+        <div class="slide active"><img src="images/1.jpg" alt="风貌1"></div>
+        <div class="slide"><img src="images/2.jpg" alt="风貌2"></div>
+        <div class="slide"><img src="images/3.jpg" alt="风貌3"></div>
+        
+        <div class="banner-text">
+            <h1>古巷雅创</h1>
+            <p>让千年街巷的烟火气与人文魂，在方寸文创间得以延续与新生</p>
+        </div>
+
+        <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </header>
+
+    <section class="creative-products-section">
+        <div class="content-container">
+            <h2 class="section-title">西四北三条·特色文创</h2>
+            <div class="divider"></div>
+            <p class="section-desc">将胡同的自然肌理与人文印记转化为可触摸、可收藏的文创载体</p>
+
+            <div class="products-grid">
+                
+                <div class="product-card" onclick="openModal(
+                    'images/xiaoguotu.png', 
+                    '门楼藏韵旋转冰箱贴', 
+                    '🏷️ 零售价：68元/枚\n\n💡 设计思路：\n集成了西四北三条的隆长寺、六座特色门楼与胡同四季花卉景观，通过三层旋转结构实现互动体验。底层金色基底承载胡同的温柔底色，中间门楼层可自由欣赏建筑全貌，上层标识定格胡同文化符号，让老城街巷的建筑记忆以鲜活有趣的方式融入日常。'
+                )">
+                    <div class="product-img">
+                        <img src="images/xiaoguotu.png" alt="门楼藏韵旋转冰箱贴">
+                    </div>
+                    <div class="product-info">
+                        <h3>门楼藏韵旋转冰箱贴</h3>
+                        <span class="product-tag">门楼藏韵系列</span>
+                        <p>点击查看详情</p>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openModal(
+                    'images/xiangji.png,images/zhankai.png,images/jiaopian.jpg', 
+                    '一镜藏四季 胶片相机冰箱贴', 
+                    '🏷️ 零售价：68元/个\n\n💡 设计思路：\n以复古相机与胶片影像为创作灵感。以相机为载体、胶片为媒介，通过抽拉卷轴的互动形式串联胡同春、夏、秋、冬四景。借取景留影的意象，捕捉老巷烟火与四时风物，把流动的街巷光景浓缩于小巧器物之中。'
+                )">
+                    <div class="product-img">
+                        <img src="images/xiangji.png" alt="胶片相机冰箱贴">
+                    </div>
+                    <div class="product-info">
+                        <h3>一镜藏四季 胶片相机冰箱贴</h3>
+                        <span class="product-tag">胡同记忆系列</span>
+                        <p>点击查看详情</p>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openModal(
+                    'images/guangspring.png,images/guangsummer.png,images/guangfall.png,images/guangwinter.png,images/guangback.png', 
+                    '巷隅四时影 光栅书签', 
+                    '🏷️ 零售价：15元/枚\n\n💡 设计思路：\n单枚书签集成四幅画面，通过光栅工艺实现视角切换式四季变换效果。让使用者在翻阅、更换视角时直观感受胡同四季的时空变化，定格老城街巷的温柔记忆，实现“一枚书签，阅尽四季胡同”。'
+                )">
+                    <div class="product-img">
+                        <img src="images/guangspring.png" alt="光栅书签">
+                    </div>
+                    <div class="product-info">
+                        <h3>巷隅四时影 光栅书签</h3>
+                        <span class="product-tag">胡同记忆系列</span>
+                        <p>点击查看详情</p>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openModal(
+                    'images/fourindex.png,images/fourspring.png,images/foursummer.png,images/fourfall.png,images/fourwinter.png,images/fourback.png', 
+                    '胡同四时志 胶片票根书签套组', 
+                    '🏷️ 零售价：36元/套\n\n💡 设计思路：\n产品采用折页结构，打破常规呈现形式，展开即为一整幅胡同四季长卷。画面主体采用通透胶片材质，隐喻以影像定格岁月。单枚可独立使用，组合又能完整诉说胡同四时变迁，兼具艺术美感与收藏价值。'
+                )">
+                    <div class="product-img">
+                        <img src="images/fourindex.png" alt="书签套组">
+                    </div>
+                    <div class="product-info">
+                        <h3>胡同四时志 书签套组</h3>
+                        <span class="product-tag">胡同记忆系列</span>
+                        <p>点击查看详情</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="famous-hutong-section">
+        <div class="content-container">
+            <h2 class="section-title">京城名巷漫游</h2>
+            <div class="divider"></div>
+            <p class="section-desc">参考北京知名胡同的文商融合模式</p>
+
+            <div class="hutong-links-grid">
+                <a href="https://s.visitbeijing.com.cn/attraction/101328" target="_blank" class="hutong-link-card">
+                    <h3>南锣鼓巷</h3><p>查看官网介绍 ↗</p>
+                </a>
+                <a href="https://s.visitbeijing.com.cn/attraction/120280" target="_blank" class="hutong-link-card">
+                    <h3>史家胡同</h3><p>查看官网介绍 ↗</p>
+                </a>
+                <a href="https://s.visitbeijing.com.cn/attraction/101703" target="_blank" class="hutong-link-card">
+                    <h3>东交民巷</h3><p>查看官网介绍 ↗</p>
+                </a>
+                <a href="https://s.visitbeijing.com.cn/attraction/101270" target="_blank" class="hutong-link-card">
+                    <h3>烟袋斜街</h3><p>查看官网介绍 ↗</p>
+                </a>
+                <a href="https://s.visitbeijing.com.cn/gallery/8642" target="_blank" class="hutong-link-card">
+                    <h3>灵境胡同</h3><p>查看官网介绍 ↗</p>
+                </a>
+                <a href="https://s.visitbeijing.com.cn/attraction/101259" target="_blank" class="hutong-link-card">
+                    <h3>帽儿胡同</h3><p>查看官网介绍 ↗</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img-container" onclick="nextModalImage()">
+                    <img id="modalImg" src="" alt="产品详图">
+                    <div id="modalImgHint" class="img-switch-hint">👆 点击图片切换效果</div>
+                </div>
+                <div class="modal-text">
+                    <h2 id="modalTitle">产品标题</h2>
+                    <div class="divider" style="margin: 15px 0; width: 40px;"></div>
+                    <p id="modalDesc">这里是详细介绍文案位置...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 西城四合项目组 - 大学生创新创业训练计划</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

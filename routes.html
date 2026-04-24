@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西城四合 - 路线导览</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="routes-page">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">西城四合</a>
+            <ul class="nav-links">
+                <li><a href="index.html">基本概况</a></li>
+                <li><a href="history.html">历史沿革</a></li>
+                <li><a href="routes.html" class="active">路线导览</a></li>
+                <li><a href="sounds.html">院落留声</a></li>
+                <li><a href="creation.html">古巷雅创</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-slider">
+        <div class="slide active"><img src="images/1.jpg" alt="1"></div>
+        <div class="slide"><img src="images/2.jpg" alt="2"></div>
+        <div class="slide"><img src="images/3.jpg" alt="3"></div>
+        
+        <div class="banner-text">
+            <h1>路线导览</h1>
+            <p>“连点成线、串珠成链”，构建沉浸式胡同文化体验</p>
+        </div>
+
+        <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </header>
+
+    <section class="map-section">
+        <div class="content-container">
+            <div class="map-toggle">
+                <button class="toggle-btn active" onclick="switchMap('yanhuo')">京味烟火线</button>
+                <button class="toggle-btn" onclick="switchMap('renwen')">人文寻踪线</button>
+            </div>
+
+            <div class="interactive-map-container">
+                
+                <div id="map-yanhuo" class="map-layer active">
+                    <div class="route-intro">
+                        <p>“京味烟火之旅”是一条融合老北京美食文化与胡同历史记忆的步行路线。从铜锅涮肉与朝鲜冷面的舌尖对决开始，到一壶清茶、几碟点心的悠然午后，再到老字号糕点铺的京味传承；从元大都遗存的胡同肌理，到藏书楼、电影摇篮、抗日名将路、梨园故居的层层递进——这条不足两公里的路线，浓缩了西四北街区七百余年的市井生活与人文底蕴。</p>
+                        <p class="highlight-text">欢迎您亲自走一趟，感受这座古都最真实的烟火气。</p>
+                    </div>
+                    <img src="images/map-yanhuo.png" alt="京味烟火线" class="map-image">
+                    
+                    <div class="map-pin" style="top: 90%; left: 86%;"
+                         data-title="古铜老院铜锅涮肉·清真" 
+                         data-desc="经营传统炭火铜锅涮肉，清汤锅底赠送羊尾油以润锅提香。羊肉产自内蒙古呼伦贝尔草原，手切羊肉鲜嫩无膻味。招牌菜包括高钙羊肉（带脆骨）、半边云（肥瘦相间）及老院三宝。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 85%; left: 90%;"
+                         data-title="华天延吉餐厅" 
+                         data-desc="始创于1943年的朝鲜冷面老字号。现压荞麦冷面口感劲道爽滑，牛肉汤底经冰镇后酸甜清凉。推荐配菜为拌桔梗及以牛肉制作的锅包肉。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 75%; left: 90%;"
+                         data-title="易应茶舍" 
+                         data-desc="饱餐之后，可前往易应茶舍享用下午茶。茶品以张一元茉莉花茶、普洱、老白茶为主，茶点包括老北京自来红、自来白、茯苓饼等。一壶清茶，几碟红炉点心，在此感受西四的慢时光。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 60%; left: 92%;"
+                         data-title="紫光园" 
+                         data-desc="老北京酸奶：奶香浓郁，口感醇厚；驴打滚 / 艾窝窝：传统京味小吃，外皮软糯，内馅绵密；糖火烧：外皮酥脆，内馅香甜，层次分明。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 45%; left: 90%;"
+                         data-title="德盛斋老北京清真糕点" 
+                         data-desc="糖耳朵：外皮金黄酥脆，形似耳朵；蜜三刀：外裹糖汁，甜而不腻；绿豆糕：豆香浓郁，入口即化；鲜花玫瑰饼：外皮酥松，带有玫瑰清香。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 39%; left: 53%;"
+                         data-title="傅增湘故居 (藏园)" 
+                         data-desc="1918年，近代藏书家傅增湘在此购地建宅，命名为藏园，园内藏书楼名为双鉴楼。鼎盛时期藏书达20余万卷，为民国北方私家藏书之冠。" 
+                         data-audio="audio/fuzengxiang.m4a"
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 38.5%; left: 68.5%;"
+                         data-title="北京电影学院前身" 
+                         data-desc="1950年，中央文化部电影局在4号院创办表演艺术研究所，即北京电影学院的发源地，新中国电影教育由此起步。" 
+                         data-audio="audio/dianyingju.m4a"
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 70%; left: 24%;"
+                         data-title="程砚秋故居" 
+                         data-desc="京剧“四大名旦”之一程砚秋于1937年至1958年在此居住。书房名御霜簃。日伪时期，他拒绝为日本人演出，隐居务农，展现铮铮傲骨。" 
+                         data-audio="audio/chengyanqiu.m4a"
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+
+                    <div class="map-pin" style="top: 69.5%; left: 67.5%;"
+                         data-title="马福祥故居" 
+                         data-desc="清末民初武举、蒙藏委员会委员长马福祥宅邸。花园内叠石为山，上有爬山游廊、绣楼和八角亭，部分院落现已改为幼儿园。" 
+                         onclick="playMapAudio(this)">
+                        <div class="pin-dot"></div><div class="pin-pulse"></div>
+                    </div>
+                </div>
+
+
+                <div id="map-renwen" class="map-layer">
+                    <div class="route-intro">
+                        <p>“人文寻踪线”是一条深度寻访胡同古迹的路线。建议从西四北大街的护国双关帝庙启程，一路寻访胡同深处的古寺、名人宅邸与形形色色的老北京传统宅门。从元代的信仰遗存，到明清的建筑规制，再到近现代的文人风骨——这条路线将为您揭开胡同“门第”等级的奥秘，带您走进一段厚重的历史文化之旅。</p>
+                        <p class="highlight-text">欢迎您亲自走一趟，开启这段跨越时空的人文寻踪。</p>
+                    </div>
+                    <img src="images/map-renwen.png" alt="人文寻踪线" class="map-image">
+                    
+                    <div class="map-pin" style="top: 77%; left: 95.5%;" data-title="护国双关帝庙" data-desc="位于西四北大街。作为老北京的信仰遗存，这处庄严的古建为您开启这段厚重的历史文化之旅定下了古朴的基调。庙内山门为仿木砖雕结构，石刻匾额书“敕建护国双关帝庙”。" data-audio="audio/guandi.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 69%; left: 89.5%;" data-title="圣祚隆长寺" data-desc="位于三条胡同东口。承载着明清时期的历史记忆，曾为汉经厂外厂，见证了大千世界的梵音古刹与文化流转。" data-audio="audio/longchang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 70%; left: 31.5%;" data-title="广亮大门" data-desc="属于高级宅门。门扇安在脊檩下方，门前空间宽敞。其特点是门洞占满一间房的空间，装饰考究，显示出主人显赫的社会地位。" data-audio="audio/guangliang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 71.5%; left: 33.5%;" data-title="金柱大门" data-desc="等级略低于广亮大门。门扇安在金柱位置。虽然不如广亮大门开敞，但仍属于官宦人家的体面选择。" data-audio="audio/jinzhu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 69.5%; left: 50.5%;" data-title="蛮子门" data-desc="特点是门扇直接安在最外侧的檐柱上。这种设计为了最大限度利用门洞内的空间，常为富裕商贾所用。" data-audio="audio/manzimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 69.5%; left: 75%;" data-title="如意门" data-desc="北京最常见的民居大门。门口通常有精美的砖雕，因门楣上的装饰寓意“万事如意”而得名。" data-audio="audio/ruyimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 69.5%; left: 15.5%;" data-title="随墙门" data-desc="在大墙上直接开门。简单朴素，不占空间，是普通平民百姓家常见的形制。" data-audio="audio/suiqiangmen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 72%; left: 62.5%;" data-title="西洋门" data-desc="受近代西方建筑风格影响，在传统砖雕中加入了圆拱门、欧式花纹等元素，反映了清末民初中西文化的碰撞。" data-audio="audio/xiyangmen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 69.5%; left: 67.5%;" data-title="马福祥故居" data-desc="清末民初武举、蒙藏委员会委员长马福祥宅邸。花园内叠石为山，上有爬山游廊、绣楼和八角亭。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 70%; left: 23.5%;" data-title="程砚秋故居" data-desc="京剧“四大名旦”之一程砚秋于1937年至1958年在此居住。书房名御霜簃，展现了梨园名流的雅致生活。" data-audio="audio/chengyanqiu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 38.5%; left: 68%;" data-title="北京电影学院前身" data-desc="1950年，中央文化部电影局在此创办表演艺术研究所。新中国电影教育的摇篮。" data-audio="audio/dianyingju.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    <div class="map-pin" style="top: 38%; left: 53%;" data-title="傅增湘故居 (藏园)" data-desc="1918年近代藏书家傅增湘建宅，藏书达20余万卷，为民国北方私家藏书之冠。" data-audio="audio/fuzengxiang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="mapTooltip" class="map-tooltip">
+        <h3 id="ttTitle">地点名称</h3>
+        <div class="tt-divider"></div>
+        <div class="tt-content-wrap">
+            <p id="ttDesc">详细介绍...</p>
+        </div>
+        <div id="ttAudioHint" class="audio-hint">🎵 包含讲解，点击播放</div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 西城四合项目组 - 大学生创新创业训练计划</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
