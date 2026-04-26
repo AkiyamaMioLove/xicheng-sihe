@@ -566,3 +566,31 @@ body { font-family: "Microsoft YaHei", sans-serif; background-color: #fcfaf8; co
     .anecdotes-grid { grid-template-columns: 1fr; gap: 20px; }
     .anecdote-card { padding: 25px 20px; }
 }
+/* =========================================
+   移动端路线导览 - 介绍框遮挡修复
+========================================= */
+@media screen and (max-width: 768px) {
+    .map-tooltip {
+        /* 🔑 核心修复：在手机端将介绍框固定在底部中央 */
+        position: fixed !important;
+        left: 50% !important;
+        top: auto !important; /* 强制取消 JS 设置的 top 坐标 */
+        bottom: 30px !important; /* 距离屏幕底部留出一点距离 */
+        transform: translateX(-50%) !important; /* 只水平居中 */
+        
+        /* 宽度调整 */
+        width: 92% !important; 
+        max-width: 450px;
+        
+        /* 交互增强 */
+        pointer-events: auto; /* 允许用户点击介绍框内部，方便上下滑动阅读长文本 */
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 -5px 25px rgba(0,0,0,0.15); /* 改为向上投影，更有质感 */
+    }
+
+    /* 手机端稍微调大一点点正文字号，方便阅读 */
+    .map-tooltip p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
