@@ -260,11 +260,38 @@ body { font-family: "Microsoft YaHei", sans-serif; background-color: #fcfaf8; co
 .map-toggle { display: flex; justify-content: flex-start; gap: 15px; margin-bottom: 20px; }
 .toggle-btn { padding: 10px 25px; background-color: #eee; color: #555; border: none; border-radius: 30px; font-size: 16px; cursor: pointer; transition: all 0.3s; font-weight: bold; }
 .toggle-btn.active { background-color: #c9372c; color: white; box-shadow: 0 4px 10px rgba(201, 55, 44, 0.3); }
-.interactive-map-container { position: relative; width: 100%; background: #e5ddce; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.interactive-map-container {
+    position: relative;
+    width: 100%;
+    background: #e5ddce;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    line-height: 0; /* 🔑 消除图片下方的微小间隙，防止漂移 */
+}
+/* 为每一层地图创建一个绝对坐标系 */
+.map-wrapper {
+    position: relative; /* 所有的红点以此为 0,0 坐标 */
+    display: inline-block;
+    width: 100%;
+}
 .map-layer { display: none; position: relative; width: 100%; }
 .map-layer.active { display: block; }
-.map-image { width: 100%; display: block; height: auto; }
-.map-pin { position: absolute; width: 30px; height: 30px; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; }
+.map-image {
+    width: 100%;
+    height: auto;
+    display: block; /* 消除行内元素间隙 */
+}
+
+/* 红点样式保持相对定位 */
+.map-pin {
+    position: absolute;
+    width: 24px;  /* 稍微调小一点，显得更精细 */
+    height: 24px;
+    transform: translate(-50%, -50%); /* 确保中心对准百分比位置 */
+    cursor: pointer;
+    z-index: 10;
+}
 .pin-dot { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 14px; height: 14px; background-color: #c9372c; border: 2px solid white; border-radius: 50%; z-index: 2; transition: transform 0.2s; }
 .map-pin:hover .pin-dot, .map-pin.playing .pin-dot { transform: translate(-50%, -50%) scale(1.5); background-color: #e54d42; }
 .pin-pulse { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; background-color: rgba(201, 55, 44, 0.5); border-radius: 50%; z-index: 1; animation: pulse 2s infinite ease-out; }
@@ -376,4 +403,166 @@ body { font-family: "Microsoft YaHei", sans-serif; background-color: #fcfaf8; co
 @media screen and (max-width: 768px) {
     .video-display-section { padding: 40px 0; }
     .video-container { width: 92%; }
+}
+/* =========================================
+   首页 (Basic Overview) 精细化排版
+========================================= */
+
+/* 欢迎语样式 */
+.welcome-title { font-size: 36px; text-align: center; margin-top: 80px; font-weight: bold; color: #222; }
+.welcome-subtitle { font-size: 18px; text-align: center; color: #c9372c; margin-top: 5px; letter-spacing: 1px; }
+.intro-text { max-width: 800px; margin: 0 auto; text-align: center; font-size: 17px; line-height: 2; color: #555; }
+
+/* 社区范围三栏卡片 */
+.lane-range-section { padding: 50px 0; background: #f9f6f2; margin: 60px 0; }
+.lane-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.lane-card { background: #fff; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 3px solid #c9372c; }
+.lane-icon { font-size: 30px; margin-bottom: 15px; }
+.lane-card h3 { margin-bottom: 10px; color: #333; }
+.lane-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+/* 侧边图文混排（视频+文字） */
+.culture-section { padding: 60px 0; }
+.side-layout { display: flex; align-items: center; gap: 50px; }
+.side-text { flex: 1; }
+.side-video { flex: 1.2; }
+.side-title { font-size: 28px; margin-bottom: 20px; color: #222; }
+.side-text p { font-size: 16px; line-height: 1.8; color: #555; text-align: justify; }
+
+/* 服务与治理四格 */
+.service-section { padding: 80px 0; }
+.service-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+.service-item { padding: 20px; border-left: 4px solid #c9372c; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.service-item h4 { color: #c9372c; margin-bottom: 10px; font-size: 18px; }
+.service-item p { font-size: 15px; color: #666; }
+
+/* 愿景版块 */
+.vision-section { padding: 100px 0; background: #fffdfb; }
+.vision-box { max-width: 800px; margin: 0 auto; text-align: center; border: 1px solid #eee; padding: 50px; border-radius: 20px; background: white; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+.vision-box h2 { color: #222; margin-bottom: 20px; }
+.vision-box p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 30px; }
+.final-invite { margin-top: 40px; }
+.final-invite p { font-size: 20px; font-weight: bold; color: #c9372c; margin-bottom: 5px; }
+.final-invite span { color: #888; font-size: 14px; }
+
+/* 手机适配 */
+@media screen and (max-width: 768px) {
+    .lane-grid, .service-list, .side-layout { grid-template-columns: 1fr; flex-direction: column; }
+    .side-layout { gap: 30px; }
+    .welcome-title { font-size: 28px; }
+    .vision-box { padding: 30px; }
+}
+/* 声音模块容器 */
+.sound-module {
+    display: none; /* 默认隐藏 */
+    animation: fadeIn 0.5s ease;
+}
+
+.sound-module.active {
+    display: block; /* 激活时显示 */
+}
+
+/* 渐显动画 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 调整声音方块网格，确保12个方块排版整齐 */
+.sound-wall-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 电脑端一行4个 */
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .sound-wall-grid {
+        grid-template-columns: repeat(2, 1fr); /* 手机端一行2个 */
+    }
+}
+/* =========================================
+   历史沿革 - 新增图片排版与名人轶事卡片
+========================================= */
+
+/* 时间轴图片样式 (利用Flex布局的特性，在左右空白处完美交替) */
+.timeline-img {
+    width: 45%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.timeline-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.timeline-item:hover .timeline-img img {
+    transform: scale(1.05); /* 鼠标悬停微微放大 */
+}
+
+/* 移动端时间轴修正 (确保图片和文字在手机上竖向排列) */
+@media screen and (max-width: 768px) {
+    .timeline-item, .timeline-item:nth-child(even) {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+    .timeline-img {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+        margin-bottom: 15px;
+    }
+    .timeline-img img { height: 180px; }
+}
+
+/* 名人轶事三列卡片网格 */
+.anecdotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.anecdote-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    border-top: 4px solid #c9372c;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.anecdote-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.anecdote-header { margin-bottom: 20px; }
+.anecdote-header h3 { font-size: 24px; color: #222; margin-bottom: 10px; letter-spacing: 2px; }
+.anecdote-location { 
+    display: inline-block; 
+    font-size: 13px; 
+    color: #c9372c; 
+    background: #fff1f0; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-weight: bold;
+}
+
+.anecdote-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* 手机端名人轶事单列显示 */
+@media screen and (max-width: 768px) {
+    .anecdotes-grid { grid-template-columns: 1fr; gap: 20px; }
+    .anecdote-card { padding: 25px 20px; }
 }

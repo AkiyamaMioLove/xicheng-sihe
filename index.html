@@ -6,7 +6,7 @@
     <title>西城四合 - 首页</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="index-page">
 
     <nav class="navbar">
         <div class="nav-container">
@@ -25,9 +25,7 @@
         <div class="slide active"><img src="images/1.jpg" alt="1"></div>
         <div class="slide"><img src="images/2.jpg" alt="2"></div>
         <div class="slide"><img src="images/3.jpg" alt="3"></div>
-        
         <div class="banner-text"><h1></h1><p></p></div>
-
         <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
         <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
         <div class="slider-dots">
@@ -37,21 +35,99 @@
         </div>
     </header>
 
-    <section class="video-display-section">
+    <section class="overview-section">
         <div class="content-container">
-            <h2 class="section-title">古巷掠影</h2>
+            <h1 class="welcome-title">欢迎来到西四北三条社区</h1>
+            <p class="welcome-subtitle">一座承载着老北京记忆与温情的胡同家园</p>
             <div class="divider"></div>
-            <div class="video-container">
-                <video controls poster="images/home-poster.jpg">
-                    <source src="video/home-video.mp4" type="video/mp4">
-                    您的浏览器不支持视频播放。
-                </video>
+            <div class="intro-text">
+                <p>本社区地处北京市西城区西四北地区核心地带，东起西四北大街，西至赵登禹路，由西四北三条、西四北四条、西四北五条三条东西向胡同组成。这里街巷规整、院落幽深，青砖灰瓦间留存着元大都以来的城市肌理，是北京老城传统居住区风貌保存最为完整的区域之一。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="lane-range-section">
+        <div class="content-container">
+            <div class="lane-grid">
+                <div class="lane-card">
+                    <div class="lane-icon">📍</div>
+                    <h3>西四北三条</h3>
+                    <p>社区主轴线，胡同内保留明代隆长寺遗址等多处历史印记。</p>
+                </div>
+                <div class="lane-card">
+                    <div class="lane-icon">📍</div>
+                    <h3>西四北四条</h3>
+                    <p>传统生活气息浓厚，古槐成荫，邻里和睦。</p>
+                </div>
+                <div class="lane-card">
+                    <div class="lane-icon">📍</div>
+                    <h3>西四北五条</h3>
+                    <p>闹中取静，保存有完整的四合院群落，岁月静好。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-section">
+        <div class="content-container">
+            <div class="side-layout">
+                <div class="side-text">
+                    <h2 class="side-title">🏡 历史与人文</h2>
+                    <p>自元代形成街巷格局至今，三条胡同见证了古都数百年的市井烟火与文脉传承。门墩、抱鼓石、老门楼……每一处细节都诉说着京韵文化的独特魅力。社区现有常住居民一千余户，邻里守望相助，延续着“远亲不如近邻”的胡同精神。</p>
+                </div>
+                <div class="side-video">
+                    <div class="video-container">
+                        <video controls poster="images/home-poster.jpg">
+                            <source src="video/home-video.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="content-container">
+            <h2 class="section-title">❤️ 服务与治理</h2>
+            <div class="divider"></div>
+            <p class="section-desc">社区党委与居委会以“党建引领、居民共治”为核心，打造全龄友好、便民高效的治理体系</p>
+            <div class="service-list">
+                <div class="service-item">
+                    <h4>一站式服务窗口</h4>
+                    <p>社保、民政、残联、法律咨询等事项便捷办理。</p>
+                </div>
+                <div class="service-item">
+                    <h4>养老服务驿站</h4>
+                    <p>为社区长者提供助餐、照护、文娱等服务。</p>
+                </div>
+                <div class="service-item">
+                    <h4>网格化管理</h4>
+                    <p>居民诉求“接诉即办”，小事不出网格，大事不出社区。</p>
+                </div>
+                <div class="service-item">
+                    <h4>文化实践站</h4>
+                    <p>定期开展京剧票友会、非遗体验、读书会等活动。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="content-container">
+            <div class="vision-box">
+                <h2>🌟 社区愿景</h2>
+                <p>传承胡同文脉，焕发老城活力。我们将继续推进背街小巷精细化治理、适老化改造与智慧社区建设，让西四北三条、四条、五条不仅留有历史的厚度，更充满生活的温度。</p>
+                <div class="final-invite">
+                    <p>西四北三条社区，欢迎您常来走走</p>
+                    <span>这里有古都的根，也有家园的心。</span>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>© 2024 西城四合项目组 - 大学生创新创业训练计划</p>
+        <p>© 2026 西城四合</p>
     </footer>
 
     <script src="script.js"></script>

@@ -28,7 +28,7 @@
         
         <div class="banner-text">
             <h1>院落留声</h1>
-            <p>点击方块，组合属于你的胡同环境音</p>
+            <p>聆听胡同呼吸，在声音中穿越古今</p>
             <button class="stop-all-btn" onclick="stopAllSounds()">⏹ 停止所有声音</button>
         </div>
 
@@ -41,117 +41,86 @@
         </div>
     </header>
 
-    <section class="audio-guide-section">
+    <section class="sound-section">
         <div class="content-container">
-            <h2 class="section-title">聆听·古建遗韵</h2>
-            <div class="divider"></div>
-            <div class="audio-playlist">
-                
-                <div class="audio-item" onclick="toggleAudio(this, 'audio/fuzengxiang.m4a')">
-                    <div class="audio-info">
-                        <h3>01. 傅增湘故居 (藏园)</h3>
-                        <p>近代藏书家的书香岁月与双鉴楼的传奇</p>
-                    </div>
-                    <div class="audio-controls">
-                        <span class="play-status">点击播放</span>
-                        <div class="play-btn">▶</div>
-                    </div>
-                </div>
-
-                <div class="audio-item" onclick="toggleAudio(this, 'audio/chengyanqiu.m4a')">
-                    <div class="audio-info">
-                        <h3>02. 程砚秋故居</h3>
-                        <p>京剧四大名旦之一的胡同隐居与铮铮傲骨</p>
-                    </div>
-                    <div class="audio-controls">
-                        <span class="play-status">点击播放</span>
-                        <div class="play-btn">▶</div>
-                    </div>
-                </div>
-
-                <div class="audio-item" onclick="toggleAudio(this, 'audio/dianyingju.m4a')">
-                    <div class="audio-info">
-                        <h3>03. 中央电影局表演艺术研究所</h3>
-                        <p>北京电影学院的发源地，新中国电影教育的摇篮</p>
-                    </div>
-                    <div class="audio-controls">
-                        <span class="play-status">点击播放</span>
-                        <div class="play-btn">▶</div>
-                    </div>
-                </div>
-
-                <div class="audio-item" onclick="toggleAudio(this, 'audio/guandi.m4a')">
-                    <div class="audio-info">
-                        <h3>04. 护国双关帝庙</h3>
-                        <p>始建于元代的精美石刻与忠义信仰</p>
-                    </div>
-                    <div class="audio-controls">
-                        <span class="play-status">点击播放</span>
-                        <div class="play-btn">▶</div>
-                    </div>
-                </div>
-
-                <div class="audio-item" onclick="toggleAudio(this, 'audio/longchang.m4a')">
-                    <div class="audio-info">
-                        <h3>05. 圣祚隆长寺</h3>
-                        <p>汉经厂外厂遗址，见证大千世界的梵音古刹</p>
-                    </div>
-                    <div class="audio-controls">
-                        <span class="play-status">点击播放</span>
-                        <div class="play-btn">▶</div>
-                    </div>
-                </div>
-
+            
+            <div class="map-toggle" style="justify-content: center; margin-bottom: 40px;">
+                <button class="toggle-btn active" onclick="switchSoundModule('gujian')">聆听·古建遗韵</button>
+                <button class="toggle-btn" onclick="switchSoundModule('echo')">记忆·老北京回声墙</button>
             </div>
+
+            <div id="sound-gujian" class="sound-module active">
+                <div class="audio-playlist">
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/fuzengxiang.m4a')">
+                        <div class="audio-info"><h3>01. 傅增湘故居 (藏园)</h3><p>近代藏书家的书香岁月</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/chengyanqiu.m4a')">
+                        <div class="audio-info"><h3>02. 程砚秋故居</h3><p>京剧名家的胡同隐居风骨</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/dianyingju.m4a')">
+                        <div class="audio-info"><h3>03. 中央电影局表演艺术研究所</h3><p>中国电影教育的摇篮</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/guandi.m4a')">
+                        <div class="audio-info"><h3>04. 护国双关帝庙</h3><p>元代遗存的忠义信仰空间</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/longchang.m4a')">
+                        <div class="audio-info"><h3>05. 圣祚隆长寺</h3><p>见证大千世界的梵音古刹</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/guangliang.m4a')">
+                        <div class="audio-info"><h3>06. 广亮大门</h3><p>官宦之家的威仪与等级</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/jinzhu.m4a')">
+                        <div class="audio-info"><h3>07. 金柱大门</h3><p>书香门第的内敛之美</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/manzimen.m4a')">
+                        <div class="audio-info"><h3>08. 蛮子门</h3><p>商贾大户的实用与安全</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/ruyimen.m4a')">
+                        <div class="audio-info"><h3>09. 如意门</h3><p>寻常巷陌的祈愿与砖雕</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/suiqiangmen.m4a')">
+                        <div class="audio-info"><h3>10. 随墙门</h3><p>市井百姓的朴实生活</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                    <div class="audio-item" onclick="toggleAudio(this, 'audio/xiyangmen.m4a')">
+                        <div class="audio-info"><h3>11. 西洋门</h3><p>清末民初的中西文明碰撞</p></div>
+                        <div class="audio-controls"><span class="play-status">点击播放</span><div class="play-btn">▶</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sound-echo" class="sound-module">
+                <div class="sound-wall-grid">
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/mojianzi.m4a')"><div class="tile-content"><h3>磨剪子<br>镪菜刀</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/tanghulu.m4a')"><div class="tile-content"><h3>冰糖<br>葫芦</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/geshao.wav')"><div class="tile-content"><h3>漫天<br>鸽哨</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/chanming.m4a')"><div class="tile-content"><h3>夏日<br>蝉鸣</h3></div></div>
+                    
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/jingyouzi.mp3')"><div class="tile-content"><h3>胡同<br>闲谈</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/binggun.m4a')"><div class="tile-content"><h3>口述·<br>买冰棍</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/miaohui.mp3')"><div class="tile-content"><h3>庙会<br>丝竹</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/xiaoniao.wav')"><div class="tile-content"><h3>清晨<br>鸟啼</h3></div></div>
+
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/shoujiadian.mp3')"><div class="tile-content"><h3>清晨<br>收家电</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/cheling.wav')"><div class="tile-content"><h3>自行车<br>铃声</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/xiju.m4a')"><div class="tile-content"><h3>程砚秋<br>戏剧片段</h3></div></div>
+                    <div class="sound-tile" onclick="toggleAudio(this, 'audio/fengling.wav')"><div class="tile-content"><h3>悠然<br>风铃声</h3></div></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="sound-wall-section">
-        <div class="content-container">
-            <h2 class="section-title">记忆·老北京回声墙</h2>
-            <div class="divider"></div>
-            <div class="sound-wall-grid">
-                
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/mojianzi.m4a')">
-                    <div class="tile-content"><h3>磨剪子<br>镪菜刀</h3></div>
-                </div>
-                
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/tanghulu.m4a')">
-                    <div class="tile-content"><h3>冰糖<br>葫芦</h3></div>
-                </div>
-                
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/geshao.wav')">
-                    <div class="tile-content"><h3>漫天<br>鸽哨</h3></div>
-                </div>
-                
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/chanming.m4a')">
-                    <div class="tile-content"><h3>夏日<br>蝉鸣</h3></div>
-                </div>
-                
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/jingyouzi.mp3')">
-                    <div class="tile-content"><h3>胡同<br>闲谈</h3></div>
-                </div>
-
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/binggun.m4a')">
-                    <div class="tile-content"><h3>口述·<br>买冰棍</h3></div>
-                </div>
-
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/miaohui.mp3')">
-                    <div class="tile-content"><h3>庙会<br>丝竹</h3></div>
-                </div>
-
-                <div class="sound-tile" onclick="toggleAudio(this, 'audio/xiaoniao.wav')">
-                    <div class="tile-content"><h3>清晨<br>鸟啼</h3></div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>© 2024 西城四合项目组</p>
-    </footer>
-
+    <footer class="footer"><p>© 2026 西城四合</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
