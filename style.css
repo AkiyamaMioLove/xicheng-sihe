@@ -594,3 +594,50 @@ body { font-family: "Microsoft YaHei", sans-serif; background-color: #fcfaf8; co
         line-height: 1.6;
     }
 }
+/* =========================================
+   路线导览 - 手机端标题重合与间距修复
+========================================= */
+@media screen and (max-width: 768px) {
+    /* 1. 强化详情区域与上方地图的间距，防止重合 */
+    .route-details {
+        margin-top: 30px !important;
+        padding: 20px 15px !important;
+        display: block !important;
+        clear: both !important; /* 强制清除所有浮动影响 */
+    }
+
+    /* 2. 修复主标题（如：一、人文寻踪线）在手机端的显示 */
+    .detail-main-title {
+        font-size: 20px !important;
+        line-height: 1.4 !important; /* 增加行高防止折行时重叠 */
+        margin-bottom: 20px !important;
+        word-wrap: break-word; /* 强制长词换行 */
+        padding-bottom: 10px !important;
+    }
+
+    /* 3. 修复小标题（如：1. 护国双关帝庙） */
+    .detail-step h4 {
+        font-size: 17px !important;
+        line-height: 1.5 !important;
+        margin-top: 25px !important; /* 增加与上方段落的距离 */
+        margin-bottom: 12px !important;
+        display: block !important;
+    }
+
+    /* 4. 确保详情卡片内部的列表或段落有足够呼吸感 */
+    .detail-info-box {
+        padding: 15px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .detail-step p {
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. 修复之前固定在底部的提示框不要遮挡最下方的文字 */
+    .routes-page {
+        padding-bottom: 150px !important; /* 给底部留出空间显示提示框 */
+    }
+}

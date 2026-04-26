@@ -5,6 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>西城四合 - 路线导览</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================================
+           路线详情专属排版样式 (内置于本页不影响其他)
+        ========================================= */
+        .route-details {
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 35px 45px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .detail-main-title {
+            font-size: 26px;
+            color: #c9372c;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .detail-info-box {
+            background: #fff9f8;
+            border-left: 4px solid #c9372c;
+            padding: 20px 25px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+        }
+        .detail-info-box p {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .detail-info-box p:last-child { margin-bottom: 0; }
+        
+        .detail-step {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #eaeaea;
+        }
+        .detail-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .detail-step h4 {
+            font-size: 19px;
+            color: #222;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 18px;
+        }
+        .detail-step h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 6px;
+            height: 16px;
+            background: #c9372c;
+            border-radius: 3px;
+        }
+        .detail-step p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .detail-step p:last-child { margin-bottom: 0; }
+        
+        @media screen and (max-width: 768px) {
+            .route-details { padding: 25px 20px; }
+            .detail-main-title { font-size: 22px; }
+            .detail-info-box { padding: 15px; }
+        }
+    </style>
 </head>
 <body class="routes-page">
 
@@ -25,10 +103,12 @@
         <div class="slide active"><img src="images/1.jpg" alt="1"></div>
         <div class="slide"><img src="images/2.jpg" alt="2"></div>
         <div class="slide"><img src="images/3.jpg" alt="3"></div>
+        
         <div class="banner-text">
             <h1>路线导览</h1>
-            <p>点击红点，“连点成线、串珠成链”，体验沉浸式胡同文化体验</p>
+            <p>“连点成线、串珠成链”，构建沉浸式胡同文化体验</p>
         </div>
+
         <button class="slider-btn prev-btn" onclick="prevSlide()">&#10094;</button>
         <button class="slider-btn next-btn" onclick="nextSlide()">&#10095;</button>
         <div class="slider-dots">
@@ -50,42 +130,119 @@
                 
                 <div id="map-yanhuo" class="map-layer active">
                     <div class="route-intro">
-                        <p>“京味烟火之旅”是一条融合老北京美食文化与胡同历史记忆的步行路线。从铜锅涮肉与朝鲜冷面的舌尖对决开始，到一壶清茶、几碟点心的悠然午后，再到老字号糕点铺的京味传承；浓缩了西四北街区七百余年的市井生活与人文底蕴。</p>
+                        <p>“京味烟火之旅”是一条融合老北京美食文化与胡同历史记忆的步行路线。从铜锅涮肉与朝鲜冷面的舌尖对决开始，到一壶清茶、几碟点心的悠然午后，再到老字号糕点铺的京味传承；从元大都遗存的胡同肌理，到藏书楼、电影摇篮、抗日名将路、梨园故居的层层递进——这条不足两公里的路线，浓缩了西四北街区七百余年的市井生活与人文底蕴。</p>
                         <p class="highlight-text">欢迎您亲自走一趟，感受这座古都最真实的烟火气。</p>
                     </div>
+                    
                     <div class="map-wrapper">
                         <img src="images/map-yanhuo.png" alt="京味烟火线" class="map-image">
-                        <div class="map-pin" style="top: 90%; left: 86%;" data-title="古铜老院铜锅涮肉·清真" data-desc="经营传统炭火铜锅涮肉，手切羊肉鲜嫩无膻味。招牌菜包括高钙羊肉、半边云及老院三宝。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 80%; left: 90%;" data-title="华天延吉餐厅" data-desc="始创于1943年的朝鲜冷面老字号。现压荞麦冷面口感劲道爽滑，牛肉汤底经冰镇后酸甜清凉。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 68%; left: 90%;" data-title="易应茶舍" data-desc="闹中取静的中式茶空间。茶品以张一元茉莉花茶、普洱、老白茶为主，感受西四的慢时光。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 45%; left: 92%;" data-title="紫光园" data-desc="老北京酸奶、驴打滚、艾窝窝、糖火烧。传统京味小吃，定格胡同滋味。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 31%; left: 90%;" data-title="德盛斋老北京清真糕点" data-desc="糖耳朵、蜜三刀、绿豆糕、鲜花玫瑰饼。体验老北京市井饮食文化与糕点传承。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 21%; left: 53%;" data-title="傅增湘故居 (藏园)" data-desc="1918年近代藏书家傅增湘建宅，园内藏书楼名为双鉴楼。鼎盛时期藏书达20余万卷。" data-audio="audio/fuzengxiang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 21%; left: 68%;" data-title="北京电影学院前身" data-desc="1950年创办表演艺术研究所。新中国电影教育由此起步。" data-audio="audio/dianyingju.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61%; left: 23.5%;" data-title="程砚秋故居" data-desc="京剧“四大名旦”之一程砚秋于1937-1958年在此居住。书房名御霜簃。" data-audio="audio/chengyanqiu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61%; left: 67.5%;" data-title="马福祥故居" data-desc="清末民初武举、蒙藏委员会委员长马福祥宅邸。花园内叠石为山，上有爬山游廊。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 90%; left: 86%;" data-title="古铜老院铜锅涮肉·清真" data-desc="经营传统炭火铜锅涮肉，清汤锅底赠送羊尾油以润锅提香。羊肉产自内蒙古呼伦贝尔草原，手切羊肉鲜嫩无膻味。招牌菜包括高钙羊肉（带脆骨）、半边云（肥瘦相间）及老院三宝。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 80%; left: 90%;" data-title="华天延吉餐厅" data-desc="始创于1943年的朝鲜冷面老字号。现压荞麦冷面口感劲道爽滑，牛肉汤底经冰镇后酸甜清凉。推荐配菜为拌桔梗及以牛肉制作的锅包肉。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 70%; left: 90%;" data-title="易应茶舍" data-desc="饱餐之后，可前往易应茶舍享用下午茶。茶品以张一元茉莉花茶、普洱、老白茶为主，茶点包括老北京自来红、自来白、茯苓饼等。一壶清茶，几碟红炉点心，在此感受西四的慢时光。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 45%; left: 92%;" data-title="紫光园" data-desc="老北京酸奶：奶香浓郁，口感醇厚；驴打滚 / 艾窝窝：传统京味小吃，外皮软糯，内馅绵密；糖火烧：外皮酥脆，内馅香甜，层次分明。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 30%; left: 90%;" data-title="德盛斋老北京清真糕点" data-desc="糖耳朵：外皮金黄酥脆，形似耳朵；蜜三刀：外裹糖汁，甜而不腻；绿豆糕：豆香浓郁，入口即化；鲜花玫瑰饼：外皮酥松，带有玫瑰清香。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 21.5%; left: 53%;" data-title="傅增湘故居 (藏园)" data-desc="1918年，近代藏书家傅增湘在此购地建宅，命名为藏园，园内藏书楼名为双鉴楼。鼎盛时期藏书达20余万卷，为民国北方私家藏书之冠。" data-audio="audio/fuzengxiang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 21.5%; left: 68.5%;" data-title="北京电影学院前身" data-desc="1950年，中央文化部电影局在4号院创办表演艺术研究所，即北京电影学院的发源地，新中国电影教育由此起步。" data-audio="audio/dianyingju.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61.5%; left: 24%;" data-title="程砚秋故居" data-desc="京剧“四大名旦”之一程砚秋于1937年至1958年在此居住。书房名御霜簃。日伪时期，他拒绝为日本人演出，隐居务农，展现铮铮傲骨。" data-audio="audio/chengyanqiu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61%; left: 67.5%;" data-title="马福祥故居" data-desc="清末民初武举、蒙藏委员会委员长马福祥宅邸。花园内叠石为山，上有爬山游廊、绣楼和八角亭，部分院落现已改为幼儿园。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    </div>
+
+                    <div class="route-details">
+                        <h3 class="detail-main-title">二、京味烟火之旅</h3>
+                        <div class="detail-info-box">
+                            <p><strong>【游览路线】：</strong>古铜老院铜锅涮肉·清真 / 华天延吉餐厅 → 易应茶舍 → 紫光园 / 德盛斋老北京清真糕点 → 西四北五条 → 赵登禹路 → 西四北三条</p>
+                            <p><strong>【游览建议】：</strong>建议在古铜老院或华天延吉餐厅享用午餐，下午于易应茶舍品茶休憩，随后前往紫光园与德盛斋选购老北京糕点或伴手礼。之后依次穿行西四北五条、赵登禹路、西四北三条。全程步行约2–3小时。沿线多处故居不对外开放，请外观游览并尊重居民生活。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>1. 古铜老院铜锅涮肉·清真/华天延吉餐厅</h4>
+                            <p>线路起点位于西四北大街东侧北段。从地铁4号线西四站A口出站，步行约200米即可到达两家紧邻的老字号餐厅，可依据个人口味选择午餐。</p>
+                            <p><strong>古铜老院铜锅涮肉·清真</strong><br>经营传统炭火铜锅涮肉，清汤锅底赠送羊尾油以润锅提香。羊肉产自内蒙古呼伦贝尔草原，手切羊肉鲜嫩无膻味。招牌菜包括高钙羊肉（带脆骨）、半边云（肥瘦相间）及老院三宝。蘸料为现磨芝麻酱，主食推荐老院糖饼（红糖流心）和糖火烧。</p>
+                            <p><strong>华天延吉餐厅</strong><br>始创于1943年的朝鲜冷面老字号。现压荞麦冷面口感劲道爽滑，牛肉汤底经冰镇后酸甜清凉。推荐配菜为拌桔梗及以牛肉制作的锅包肉（外酥里嫩，糖醋蒜香风味）。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>2. 易应茶舍</h4>
+                            <p>饱餐之后，可前往易应茶舍享用下午茶。该茶舍位于延吉餐厅以北不远处，是一处闹中取静的中式茶空间。茶品以张一元茉莉花茶、普洱、老白茶为主，茶点包括老北京自来红、自来白、茯苓饼等。午餐时段还提供温润的茶泡饭套餐。一壶清茶，几碟红炉点心，在此感受西四的慢时光。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>3. 紫光园 / 德盛斋老北京清真糕点</h4>
+                            <p>继续向北，可到达两家老北京特产店铺。在此选购伴手礼或边逛边品尝点心，体验老北京市井饮食文化与糕点传承。</p>
+                            <p><strong>紫光园：</strong><br>老北京酸奶：奶香浓郁，口感醇厚，微带酸香，为胡同游客常选饮品。<br>驴打滚 / 艾窝窝：传统京味小吃，外皮软糯，内馅绵密，保留经典风味。<br>糖火烧：外皮酥脆，内馅香甜，层次分明。</p>
+                            <p><strong>德盛斋老北京清真糕点：</strong><br>糖耳朵：外皮金黄酥脆，内馅绵密香甜，形似耳朵。<br>蜜三刀：外裹糖汁，内馅软糯，甜而不腻。<br>绿豆糕：口感细腻，豆香浓郁，入口即化。<br>鲜花玫瑰饼：外皮酥松，内馅带有玫瑰清香。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>4. 西四北五条</h4>
+                            <p>从德盛斋旁的路口向西拐入，即到达西四北五条胡同。该胡同东起西四北大街，西至赵登禹路，全长498米。为元大都棋盘式街巷遗存，元代属鸣玉坊，明清属正红旗。</p>
+                            <p><strong>核心看点：</strong><br>傅增湘故居：1918年，近代藏书家、曾任教育总长的傅增湘在此购地建宅，取苏东坡“万人如海一身藏”诗意，命名为藏园，园内藏书楼名为双鉴楼。鼎盛时期藏书达20余万卷，为民国北方私家藏书之冠。同一院落也曾住过奉系军阀张宗昌（“三不知将军”）。<br>北京电影学院前身：1950年，中央文化部电影局在4号院创办表演艺术研究所，即北京电影学院的发源地，新中国电影教育由此起步。<br>一条胡同汇聚了接生婆的市井温情、藏书家的书香、军阀的混世传说与电影教育的摇篮。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>5. 赵登禹路</h4>
+                            <p>走出西四北五条西口，即踏上南北向的赵登禹路。该路北起西直门内大街，南至阜成门内大街，全长约1.9公里，前身为元代金水河故道、明清时期的西沟沿。1946年，为纪念抗日殉国的赵登禹将军而命名，与佟麟阁路、张自忠路并列为北京仅有的三条以现代人名命名的道路。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>6. 西四北三条</h4>
+                            <p>从赵登禹路向东拐入，即达线路终点——西四北三条。该胡同东起西四北大街，西至赵登禹路，全长527米。明代称“箔子胡同”，清代演变为“雹子胡同”“报子胡同”，1965年改今名。</p>
+                            <p><strong>核心看点：</strong><br>程砚秋故居（39号院）：京剧“四大名旦”之一程砚秋于1937年至1958年在此居住。书房名御霜簃。日伪时期，他拒绝为日本人演出，隐居务农，展现铮铮傲骨。故居现为北京市文物保护单位。<br>马福祥故居（11号院）：清末民初武举、蒙藏委员会委员长马福祥宅邸。西侧为宅院，东侧为花园。花园内叠石为山，上有爬山游廊、绣楼和八角亭，部分院落现已改为幼儿园。<br>这条胡同汇集了古寺梵音、梨园风骨与将军府邸遗存，是西四北历史街区最精华的段落之一。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>7. 结语</h4>
+                            <p>“京味烟火之旅”是一条融合老北京美食文化与胡同历史记忆的步行路线。从铜锅涮肉与朝鲜冷面的舌尖对决开始，到一壶清茶、几碟点心的悠然午后，再到老字号糕点铺的京味传承；从元大都遗存的胡同肌理，到藏书楼、电影摇篮、抗日名将路、梨园故居的层层递进——这条不足两公里的路线，浓缩了西四北街区七百余年的市井生活与人文底蕴。</p>
+                            <p>欢迎您亲自走一趟，感受这座古都最真实的烟火气。</p>
+                        </div>
                     </div>
                 </div>
 
                 <div id="map-renwen" class="map-layer">
                     <div class="route-intro">
-                        <p>“人文寻踪线”是一条深度寻访胡同古迹的路线。从元代的信仰遗存，到明清的建筑规制，再到近现代的文人风骨——这条路线将为您揭开胡同“门第”等级的奥秘。</p>
+                        <p>“人文寻踪线”是一条深度寻访胡同古迹的路线。建议从西四北大街的护国双关帝庙启程，一路寻访胡同深处的古寺、名人宅邸与形形色色的老北京传统宅门。从元代的信仰遗存，到明清的建筑规制，再到近现代的文人风骨——这条路线将为您揭开胡同“门第”等级的奥秘，带您走进一段厚重的历史文化之旅。</p>
                         <p class="highlight-text">欢迎您亲自走一趟，开启这段跨越时空的人文寻踪。</p>
                     </div>
+                    
                     <div class="map-wrapper">
                         <img src="images/map-renwen.png" alt="人文寻踪线" class="map-image">
-                        <div class="map-pin" style="top: 70.5%; left: 95.5%;" data-title="护国双关帝庙" data-desc="始建于元代，老北京的信仰遗存。山门为仿木砖雕结构，石刻匾额书“敕建护国双关帝庙”。" data-audio="audio/guandi.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 60%; left: 90%;" data-title="圣祚隆长寺" data-desc="位于三条胡同东口。曾为汉经厂外厂，见证了大千世界的梵音古刹与文化流转。" data-audio="audio/longchang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61.5%; left: 31.5%;" data-title="广亮大门" data-desc="属于高级宅门。门洞占满一间房的空间，装饰考究，显示出主人显赫的社会地位。" data-audio="audio/guangliang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 63.5%; left: 34%;" data-title="金柱大门" data-desc="等级略低于广亮大门。门扇安在金柱位置。仍属于官宦人家的体面选择。" data-audio="audio/jinzhu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61%; left: 51%;" data-title="蛮子门" data-desc="门框安在檐柱上，最大化利用门洞空间。由于隐蔽安全性高，常为富裕商贾所用。" data-audio="audio/manzimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61%; left: 75%;" data-title="如意门" data-desc="北京最常见的民居大门。因门楣上的砖雕寓意“万事如意”而得名。" data-audio="audio/ruyimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 71%; left: 95.5%;" data-title="护国双关帝庙" data-desc="位于西四北大街。作为老北京的信仰遗存，这处庄严的古建为您开启这段厚重的历史文化之旅定下了古朴的基调。庙内山门为仿木砖雕结构，石刻匾额书“敕建护国双关帝庙”。" data-audio="audio/guandi.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 60%; left: 89.5%;" data-title="圣祚隆长寺" data-desc="位于三条胡同东口。承载着明清时期的历史记忆，曾为汉经厂外厂，见证了大千世界的梵音古刹与文化流转。" data-audio="audio/longchang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61.5%; left: 31.5%;" data-title="广亮大门" data-desc="属于高级宅门。门扇安在脊檩下方，门前空间宽敞。其特点是门洞占满一间房的空间，装饰考究，显示出主人显赫的社会地位。" data-audio="audio/guangliang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 63.5%; left: 33.5%;" data-title="金柱大门" data-desc="等级略低于广亮大门。门扇安在金柱位置。虽然不如广亮大门开敞，但仍属于官宦人家的体面选择。" data-audio="audio/jinzhu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61%; left: 50.5%;" data-title="蛮子门" data-desc="特点是门扇直接安在最外侧的檐柱上。这种设计为了最大限度利用门洞内的空间，常为富裕商贾所用。" data-audio="audio/manzimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61.5%; left: 75%;" data-title="如意门" data-desc="北京最常见的民居大门。门口通常有精美的砖雕，因门楣上的装饰寓意“万事如意”而得名。" data-audio="audio/ruyimen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
                         <div class="map-pin" style="top: 61.5%; left: 15.5%;" data-title="随墙门" data-desc="在大墙上直接开门。简单朴素，不占空间，是普通平民百姓家常见的形制。" data-audio="audio/suiqiangmen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 63%; left: 62.5%;" data-title="西洋门" data-desc="受近代西方风格影响，在传统砖雕中加入圆拱门、欧式花纹，反映中西文化碰撞。" data-audio="audio/xiyangmen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 61%; left: 67.5%;" data-title="马福祥故居" data-desc="清末民初武举马福祥宅邸。花园内叠石为山，上有爬山游廊、绣楼和八角亭。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 62%; left: 23.5%;" data-title="程砚秋故居" data-desc="京剧大师程砚秋在此居住。书房名御霜簃，展现了梨园名流的雅致生活。" data-audio="audio/chengyanqiu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 21%; left: 67.5%;" data-title="北京电影学院前身" data-desc="新中国电影教育的摇篮。1950年创办表演艺术研究所。" data-audio="audio/dianyingju.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 20%; left: 53%;" data-title="傅增湘故居 (藏园)" data-desc="民国北方私家藏书之冠，藏书达20余万卷。" data-audio="audio/fuzengxiang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 63.5%; left: 62.5%;" data-title="西洋门" data-desc="受近代西方建筑风格影响，在传统砖雕中加入了圆拱门、欧式花纹等元素，反映了清末民初中西文化的碰撞。" data-audio="audio/xiyangmen.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61.5%; left: 67.5%;" data-title="马福祥故居" data-desc="清末民初武举、蒙藏委员会委员长马福祥宅邸。花园内叠石为山，上有爬山游廊、绣楼和八角亭。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 61.5%; left: 23.5%;" data-title="程砚秋故居" data-desc="京剧“四大名旦”之一程砚秋于1937年至1958年在此居住。书房名御霜簃，展现了梨园名流的雅致生活。" data-audio="audio/chengyanqiu.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 21.5%; left: 68%;" data-title="北京电影学院前身" data-desc="1950年，中央文化部电影局在此创办表演艺术研究所。新中国电影教育的摇篮。" data-audio="audio/dianyingju.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 21%; left: 53%;" data-title="傅增湘故居 (藏园)" data-desc="1918年近代藏书家傅增湘建宅，藏书达20余万卷，为民国北方私家藏书之冠。" data-audio="audio/fuzengxiang.m4a" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    </div>
+
+                    <div class="route-details">
+                        <h3 class="detail-main-title">一、人文寻踪线</h3>
+                        <div class="detail-info-box">
+                            <p><strong>【游览路线】：</strong>护国双关帝庙 → 西四北三条（圣祚隆长寺 / 门楼 / 马福祥故居 / 程砚秋故居） → 赵登禹路 → 西四北四条 → 西四北大街 → 西四北五条（中央电影局表演艺术研究院旧址 / 傅增湘故居）</p>
+                            <p><strong>【游览建议】：</strong>建议从西四北大街的护国双关帝庙启程，一路寻访胡同深处的古寺、名人宅邸与形形色色的老北京传统宅门。全程步行约1小时。沿线多处故居、学校旧址及私人宅院（如傅增湘故居、京师附小等）不对外开放，请以外观游览为主，尊重当地居民生活。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>1. 护国双关帝庙（西四北大街）</h4>
+                            <p>线路起点位于西四北大街。在步入胡同之前，首先映入眼帘的是护国双关帝庙。作为老北京的信仰遗存，这处庄严的古建为您开启这段厚重的历史文化之旅定下了古朴的基调。参观完毕后，从关帝庙向北不远，向西拐入便正式踏入胡同的肌理。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>2. 西四北三条（古寺、百态宅门与名流故居）</h4>
+                            <p>西四北三条是一条名副其实的“古建博物馆”胡同。这里不仅有古寺梵音，更是实地观察老北京四合院各种“门第”等级的绝佳去处。</p>
+                            <p><strong>核心看点：</strong><br>圣祚隆长寺：位于胡同东口，承载着明清时期的宗教文化记忆，为胡同增添了宁静与肃穆的气息。<br>传统宅门大赏：漫步胡同，您可以一次性集齐老北京四合院的多种宅门形制。从代表权贵的广亮大门、金柱大门，到富商阶层偏爱的蛮子门、如意门，再到中西合璧的西洋门以及寻常百姓家的随墙门。这些形态各异的门头，生动诉说着昔日主人的身份与地位。<br>马福祥故居：清末民初将领马福祥的宅邸。宏大的院落格局与精美的宅门，展现了民国时期将军府邸的建筑风貌与昔日威仪。<br>程砚秋故居：靠近胡同西侧，是京剧“四大名旦”之一程砚秋先生的故居。宅邸内的书房“御霜簃”见证了他日伪时期拒绝为日本人演出、隐居务农的铮铮铁骨，展现了不屈的民族气节。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>3. 赵登禹路与西四北四条（百年学府的印记）</h4>
+                            <p>穿出西四北三条西口，短暂沿南北走向的赵登禹路向北行进，随后向东拐入西四北四条。</p>
+                            <p><strong>核心看点：</strong><br>西四北四条是元大都坊巷的活化石，以百年教育文脉为核心。这里有从清代八旗官学延续至今的京师附小，承载齐白石、纪堪颐办学往事与众多文化名人足迹；没有刻意打造的景区、没有售票景点、没有网红打卡装置，是一条完完整整、原汁原味的老北京原生胡同。这里保留着元大都以来的坊巷肌理，青灰砖墙、木门小院、老树遮荫，居民日常出入、邻里闲谈、晾晒衣物、推车慢行，一切都是最自然、最松弛、最真实的老城日常。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>4. 西四北五条（电影摇篮与藏书大家）</h4>
+                            <p>走过西四北四条后，再次回到西四北大街向北行进，最后折返向西进入西四北五条。这条胡同承载了厚重的民国学术与新中国艺术发展史。</p>
+                            <p><strong>核心看点：</strong><br>中央电影局表演艺术研究院旧址：漫步其间，会途经新中国电影教育的发源地。1950年，这里孕育了无数早期电影艺术人才，是北京电影学院的前身，见证了中国电影事业的起步。<br>傅增湘故居：近代著名藏书家、曾任教育总长的傅增湘宅邸“藏园”。园内曾建有著名的藏书楼“双鉴楼”，鼎盛时期为民国北方私家藏书之冠，为这段旅程画上添上一抹书香气韵。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>5. 结语：</h4>
+                            <p>这趟“西四古建门第与人文寻踪之旅”，是一场穿越明清与民国的建筑与人文对话。从胡同口庄严的关帝庙与古寺，到三条里诉说着阶层秩序的百态宅门；从四大名旦的梨园风骨与将军府邸的岁月痕迹，再到四条的百年学府与五条的电影摇篮、藏书名楼——这条曲折迂回的路线，如同一部立体的北京胡同百科全书。</p>
+                            <p>欢迎您亲自走一趟，在青砖灰瓦间触摸这座古都的文化脉络与门第浮沉。</p>
+                        </div>
                     </div>
                 </div>
 
@@ -94,15 +251,57 @@
                         <p>“清享漫游线”是一条专为年轻人设计的“日咖夜酒”慢时光路线。从闹中取静的精品咖啡开启午后，漫步西四北原生胡同，最后以精酿小酌收尾。</p>
                         <p class="highlight-text">在这里，适合与闺蜜一起，定格胡同里最轻盈的时光。</p>
                     </div>
+                    
                     <div class="map-wrapper">
-                        <img src="images/map-qingxiang.png" alt="清享漫游线" class="map-image">
+                         <img src="images/map-qingxiang.png" alt="清享漫游线" class="map-image">
                         <div class="map-pin" style="top: 72%; left: 96%;" data-title="无问西东·咖啡" data-desc="拥有露台景观位与可爱猫咪。推荐：狮狮如意（酒香奶香融合）、老北京卡布奇诺。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 40%; left: 50%;" data-title="四条·寻常人家" data-desc="四条更安静，是真正的“生活着的胡同”。晾衣绳上的被单、窗台上的花盆、拄着拐杖晒太阳的老人……时间在这里变得很慢。不必刻意寻找什么景点，随便走走，抬头看看老槐树和鸽子笼，就是最地道的京味。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 20%; left: 50%;" data-title="五条·文脉深处" data-desc="漫五条的故事最耐人寻味。傅增湘的“藏园”曾藏书二十万卷，张宗昌这个“三不知将军”也在这里住过。最传奇的是4号院。1950年，北京电影学院的前身就在这个不起眼的小院里诞生。从接生婆的“石老娘”到电影摇篮，一条胡同串起了七百年的烟火与文脉。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
-                        <div class="map-pin" style="top: 60%; left: 50%;" data-title="三条·梨园旧梦" data-desc="进入三条胡同，脚步不自觉放轻。11号院的马福祥故居藏着叠石游廊和八角亭，现在改成了幼儿园，童声代替了当年的觥筹交错。39号院是程砚秋住了二十一年的故居，灰墙青瓦，门扉轻掩。想象当年水袖起落、唱腔绕梁，如今只剩树影斑驳。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 42%; left: 50%;" data-title="四条·寻常人家" data-desc="四条更安静，是真正的“生活着的胡同”。晾衣绳上的被单、窗台上的花盆、拄着拐杖晒太阳的老人……时间在这里变得很慢。不必刻意寻找什么景点，随便走走，抬头看看老槐树和鸽子笼，就是最地道的京味。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 22%; left: 50%;" data-title="五条·文脉深处" data-desc="漫五条的故事最耐人寻味。傅增湘的“藏园”曾藏书二十万卷，张宗昌这个“三不知将军”也在这里住过。最传奇的是4号院。1950年，北京电影学院的前身就在这个不起眼的小院里诞生。从接生婆的“石老娘”到电影摇篮，一条胡同串起了七百年的烟火与文脉。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                        <div class="map-pin" style="top: 62%; left: 50%;" data-title="三条·梨园旧梦" data-desc="进入三条胡同，脚步不自觉放轻。11号院的马福祥故居藏着叠石游廊和八角亭，现在改成了幼儿园，童声代替了当年的觥筹交错。39号院是程砚秋住了二十一年的故居，灰墙青瓦，门扉轻掩。想象当年水袖起落、唱腔绕梁，如今只剩树影斑驳。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
                         <div class="map-pin" style="top: 13%; left: 94%;" data-title="Puffin Coffee 海螺咖啡" data-desc="西四口碑榜首咖啡店。简练而专业的空间，是胡同漫步中极佳的能量补给站。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
                         <div class="map-pin" style="top: 31%; left: 95%;" data-title="大宇宙 Great Cosmos" data-desc="体验日咖夜酒的松弛氛围。随着光影变换，从清醒过渡到微醺。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
                         <div class="map-pin" style="top: 49.5%; left: 95%;" data-title="蝗虫精酿" data-desc="入夜后的胡同精酿小店。一瓶地道的精酿，为这段慢时光画上一个完美的句号。" onclick="playMapAudio(this)"><div class="pin-dot"></div><div class="pin-pulse"></div></div>
+                    </div>
+
+                    <div class="route-details">
+                        <h3 class="detail-main-title">三、日咖夜酒·清享漫游线</h3>
+                        <div class="detail-info-box">
+                            <p><strong>【游览路线】：</strong>无问西东·咖啡—胡同漫步（西四北三条、四条）—Puffin Coffee 海鹦咖啡—大宇宙 Great Cosmos—蝗虫精酿</p>
+                            <p><strong>【游览建议】：</strong>建议午后从无问西东・咖啡开启胡同慢时光，享受露台与猫咪陪伴的惬意下午茶；随后步行至海鹦咖啡浅尝西四口碑榜首咖啡；沿途漫步西四北三条、四条、五条原生胡同，感受真实老北京生活；傍晚进入大宇宙体验日咖夜酒的松弛氛围，入夜后到蝗虫精酿小酌收尾。全程步行约 2.5–3.5 小时，路线轻松舒适，不赶场、不硬饮，适合年轻人、闺蜜出行与拍照打卡。避免同质化体验。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>1. 无问西东·咖啡</h4>
+                            <p>线路起点位于西四北大街南部，闹中取静的胡同精品咖啡店。店内氛围温暖柔和，拥有露台景观位与可爱猫咪，是胡同旁极具人气的休憩空间。</p>
+                            <p><strong>推荐特色：</strong><br>狮狮如意：冰奶＋咖啡做的小狮子，小狮子在冰奶中慢慢融化，再淋上杏仁酒，酒香与奶香融合，口感微润又有层次~<br>老北京卡布奇诺：搭配老北京特色小吃—驴打滚，加上青花瓷的杯子，喝到杯底还有麻酱，妥妥的老北京气息~<br>还有好事发生、咸奶油冰美式、咸蜂蜜拿铁等特调咖啡等你品尝<br>午后阳光洒入院落，一杯咖啡、一段慢时光，最适合开启轻松的胡同漫游。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>2. 胡同漫步（西四北三条—西四北四条—西四北五条）</h4>
+                            <p>品鉴完咖啡，向北步行一段距离，就可以拐进胡同深处。这里没有景点式的喧闹，只有老北京最日常的呼吸声。</p>
+                            <p><strong>三条·梨园旧梦</strong><br>进入三条胡同，脚步不自觉放轻。11号院的马福祥故居藏着叠石游廊和八角亭，现在改成了幼儿园，童声代替了当年的觥筹交错。39号院是程砚秋住了二十一年的故居，灰墙青瓦，门扉轻掩。想象当年水袖起落、唱腔绕梁，如今只剩树影斑驳。</p>
+                            <p><strong>四条·寻常人家</strong><br>四条更安静，是真正的“生活着的胡同”。晾衣绳上的被单、窗台上的花盆、拄着拐杖晒太阳的老人……时间在这里变得很慢。不必刻意寻找什么景点，随便走走，抬头看看老槐树和鸽子笼，就是最地道的京味。</p>
+                            <p><strong>五条·文脉深处</strong><br>五条的故事最耐人寻味。傅增湘的“藏园”曾藏书二十万卷，张宗昌这个“三不知将军”也在这里住过。最传奇的是4号院。1950年，北京电影学院的前身就在这个不起眼的小院里诞生。从接生婆的“石老娘”到电影摇篮，一条胡同串起了七百年的烟火与文脉。</p>
+                            <p>一次胡同漫步，让人真正走进这座城市的肌理。没有攻略，没有终点，就顺着青砖灰瓦的脉络，走哪儿算哪儿。阳光透过槐树叶洒下来，风里飘着邻家炒菜的香气——这才是北京最动人的时刻。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>3. Puffin Coffee 海鹦咖啡</h4>
+                            <p>从五条胡同出来后，向北行进几十米，即可到达西四口味排名第一的咖啡店歇歇脚。门头简约有质感，还有临街窗户位，看看路边的大树和行人，度过一个轻松自在的午后时光。</p>
+                            <p><strong>推荐特色：</strong><br>特调咖啡：秋天起，举个栗子，这次一定橙，当海风吹走落叶，苹苹无奇，冬瓜拿铁等<br>如果你对咖啡感兴趣，也可以和店里的小哥聊聊，听听他分享的所见所闻，感受他对咖啡的喜爱。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>4. 大宇宙 Great Cosmos</h4>
+                            <p>傍晚氛围最佳，是从白天过渡到夜晚的完美节点。灯光柔和、环境松弛，不吵不闹，适合坐下聊天、放松心情，一碗小吃，一杯精酿，衔接夜晚微醺。</p>
+                            <p><strong>推荐特色</strong><br>小吃：炸灌肠，羊腿肉串配酸黄瓜，黑胡椒鱿鱼鸡胗<br>饮品：客啤与自酿融合兼具果香层次：击倒巨人震荡暴龙苏三；惠比寿琥珀拉格（清爽解暑）</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>5. 蝗虫精酿</h4>
+                            <p>路线终点为蝗虫精酿小馆，氛围轻松自在，适合朋友小聚、轻酌慢饮。作为一天旅程的收尾，在微醺中回味胡同漫步的惬意，为日咖夜酒之旅画上圆满句号。</p>
+                            <p><strong>推荐特色：</strong><br>彼岸酿造“德累斯顿的晚风”（未过滤拉格，香气足、杀口利落）<br>浑浊IPA（新西兰酒花，Citra浸膏，清新不失稳重）。</p>
+                        </div>
+                        <div class="detail-step">
+                            <h4>6. 结语：</h4>
+                            <p>“胡同日咖夜酒・轻闲漫游之旅” 是一条以松弛感为核心的胡同体验路线，从午后咖啡到傍晚小酒，串联三条最具生活气息的胡同，全程不赶、不燥、不商业化。在一杯杯轻饮与一步步漫步中，感受西四北最真实、最温柔、最治愈的老城日常，让忙碌的时光慢下来，遇见胡同里的自在与美好。</p>
+                            <p>欢迎您亲自走一趟，在日咖夜酒与胡同漫步间，邂逅西四老城最松弛自在的治愈时光。</p>
+                        </div>
                     </div>
                 </div>
 
